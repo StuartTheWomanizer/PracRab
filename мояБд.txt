@@ -1,0 +1,23 @@
+CREATE
+(driver1:Drivers {DriverId:1, DriverName: 'Александр', DriverSurname:'Шулепов', birthDate:date('1991-07-10')}),
+(driver2:Drivers {DriverId:2, DriverName: 'Сергей', DriverSurname:'Пастухов',birthDate: date('2002-03-11')}),
+(driver3:Drivers {DriverId:3, DriverName: 'Анна', DriverSurname:'Рокотова', birthDate:date('1999-11-17')})
+CREATE
+(c1:cars {carId:1, carName:'A8 3.0 АКПП', price: '1999000', mochost: '310', maxSpeed: '205', godVipuska: '2016', marka: 'Audi'}),
+(c2:cars {carId:1, carName:'Hyundai Bayon', price: '1217000', mochost: '100', maxSpeed: '185', godVipuska: '2022', marka: 'Hyundai'}),
+(c3:cars {carId:1, carName:'Tesla Model S AT', price: '8300000', mochost: '610', maxSpeed: '249', godVipuska: '2022', marka: 'Tesla'}),
+(c4:cars {carId:1, carName:'Audi A5 2.0 AMT', price: '2079000', mochost: '249', maxSpeed: '220', godVipuska: '2018', marka: 'Audi'})
+
+CREATE
+(driver1)-[:OWNED {CarId:1}]->(c1),
+(driver2)-[:OWNED {CarId:2}]->(c2),
+(driver3)-[:OWNED {CarId:3}]->(c3),
+(driver1)-[:OWNED {CarId:4}]->(c4)
+
+CREATE
+(driver1)-[:DTP {DTPId:1, DTPDate:date('2024-06-03'), DTPTime:local time:('14:30:00'),adress:'Пушкинская д2'}]->(c1),
+(driver2)-[:DTP {DTPId:2, DTPDate:date('2024-06-03'), DTPTime:local time:('12:30:00'),adress:'Пушкинская д2'}]->(c2),
+(driver3)-[:DTP {DTPId:2, DTPDate:date('2024-07-03'), DTPTime:local time:('15:30:00'),adress:'Пролетарская д36'}]->(c3),
+(driver1)-[:DTP {DTPId:2, DTPDate:date('2024-07-03'), DTPTime:local time:('15:30:00'),adress:'Пролетарская д36'}]->(c4),
+(driver3)-[:DTP {DTPId:2, DTPDate:date('2024-08-04'), DTPTime:local time:('00:00:00'),adress:'Тверская 26'}]->(c3),
+(driver2)-[:DTP {DTPId:2, DTPDate:date('2024-08-04'), DTPTime:local time:('00:00:00'),adress:'Тверская 26'}]->(c2)
