@@ -1,0 +1,23 @@
+docker run --name neo4j-ent-test --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes -e NEO4J_AUTH=neo4j/neo4j12345 -p 7475:7474 -p 7687:7678 -d neo4j:enterprise
+
+docker run --name neo4j-ent-test --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes -e NEO4J_AUTH=neo4j/neo4j12345 -p 7475:7474 -p 7688:7687 -d neo4j:enterprise
+
+
+docker run \
+--name neo4j-ent-test \
+--env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes \
+-e NEO4J_AUTH=neo4j/neo4j12345 \
+-p 7475:7474 -p 7688:7687 \
+neo4j:enterprise
+
+
+
+docker run -d --name neo4j --env=NEO4J_ACCEPT_LICENSE_AGREEMENT=yes -e NEO4J_AUTH=neo4j/neo4j12345 -p 7475:7474 neo4j:enterprise
+
+docker run '
+--name neo4j-ent-test '
+--env=NEO4J_ACCEPT_LICENSE_AGREEMENT=<yes|eval> '
+-e NEO4J_AUTH=neo4j/neo4j12345 '
+-p 7475:7474 -p 7687:7678 '
+-d '
+neo4j:enterprise
